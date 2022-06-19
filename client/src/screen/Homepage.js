@@ -20,13 +20,13 @@ export default function Homepage() {
     return (
 
         <div>
-            <div className="row">
+            <div className="row justify-content-center">
 
                 {loading ? (<h1>Завантаження</h1>) : error ? (<h1>Щось пішло не по плану</h1>) : (
                     pizzas.map((pizza) => {
 
                         return (
-                        <div className='col-md-4'>
+                        <div className='col-md-3 m-3' key={pizza._id}>
                             <div>
                                 <Pizza pizza={pizza} />
                             </div>
