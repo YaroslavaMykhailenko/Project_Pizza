@@ -39,8 +39,38 @@ h1{
   background-color: forestgreen !important;
   color: white !important;
 }
+.btn-pay{
+  background-color: forestgreen;
+  color: white !important;
+  border-color: green;
+
+}
 
 select{
   box-shadow: none !important;
   border-color: black !important;
+}
+
+.fa-plus{
+  color: green;
+  margin: 5px;
+  font-size: 20px;
+
+}
+.fa-minus{
+color: crimson;
+margin: 5px;
+font-size: 20px;
+}
+.fa-trash, .quantity{
+  font-size: 20px;
+}
+
+input{
+  margin-top: 10px !important;
+  box-shadow: none !important;
+}
+.text-left{
+  text-align: left;
+  font-family: 'Bebas Neue', cursive;
 }
