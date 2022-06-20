@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { registerUser } from "../actions/userActions"
-const registerstate = useState(state => state.registerUserReducer)
-// const { error, loading, success } = registerstate
+import Loading from "../components/Loading"
+import Success from '../components/Success'
+import Error from "../components/Error"
+
 // 
 
 export default function Registerscreen() {
@@ -10,6 +12,8 @@ export default function Registerscreen() {
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
     const [cpassword, setcpassword] = useState("")
+    const registerstate = useSelector(state => state.registerUserReducer)
+    const { error, loading, success } = registerstate
 
     const dispatch = useDispatch()
 
@@ -34,6 +38,11 @@ export default function Registerscreen() {
         <div>
             <div className="row justify-content-center mt-5">
                 <div className="col-md-5 mt-5 shadow p-3 mb-5 bg-white rounded">
+                    {loading && (<Loading/>)}
+                    {success && (<Success success='Користувач успішно зареєстрований!😏' />)}
+                    {error && (<Error error='Користувач з такими данними вже зареєстрований!'/>)}
+
+
                     <h2 style={{ fontSize: '30px', fontFamily: 'Bebas Neue' }}>Регістрація</h2>
                     <div style={{fontFamily: 'Vollkorn' }}>
                         <input required type='text' placeholder="Ім'я.." className='form-control' value={name} onChange={(e) => { setname(e.target.value) }} />
