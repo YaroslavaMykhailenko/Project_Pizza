@@ -3,6 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter,  Routes,  Route, Link , Switch} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap'
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import $ from 'jquery';
+import Popper from 'popper.js';
 import Navbar from './components/Navbar';
 import Homepage from './screen/Homepage';
 import Cartscreen from './screen/Cartscreen';

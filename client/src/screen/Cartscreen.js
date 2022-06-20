@@ -8,7 +8,11 @@ export default function Cartscreen() {
     const cartItems = cartstate.cartItems
     var totalamount = cartItems.reduce((x , item)=> x + item.price, 0)
     const dispatch = useDispatch()
+    function GoToMenu(){
+        
+        window.location.href='/'
 
+    }
     return (
         <div>
             <div className="row justify-content-center">
@@ -47,7 +51,7 @@ export default function Cartscreen() {
                     <h2 style={{fontSize:'35px', fontFamily: 'Bebas Neue'}}>Загальна ціна замовлення :</h2>
                     <h2 style={{fontSize:'35px', fontFamily: 'Bebas Neue'}}>{totalamount} ₴</h2>
                     <button className="btn m-1" style={{fontSize:'20px',fontFamily: 'Bebas Neue'}}>Перейти до оплати</button>
-                    <button  className="btn m-4" style={{fontSize:'20px',fontFamily: 'Bebas Neue'}}>Повернутися до меню</button>
+                    <button  className="btn m-4" style={{fontSize:'20px',fontFamily: 'Bebas Neue'}} onClick={GoToMenu}>Повернутися до меню</button>
 
                 </div>
 
