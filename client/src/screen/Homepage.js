@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import Pizza from '../components/Pizza'
-
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllPizzas } from '../actions/pizzaActions'
+import Loading from '../components/Loading';
+import Error from '../components/Error';
 // import { getAllPizzasReducer } from '../reducers/pizzaReducers'
 
 export default function Homepage() {
@@ -22,7 +23,7 @@ export default function Homepage() {
         <div>
             <div className="row justify-content-center">
 
-                {loading ? (<h1>Завантаження</h1>) : error ? (<h1>Щось пішло не по плану</h1>) : (
+                {loading ? (<Loading/>) : error ? (<Error error="Щось пішло не по плану😒"/>) : (
                     pizzas.map((pizza) => {
 
                         return (

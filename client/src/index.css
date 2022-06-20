@@ -74,3 +74,7 @@ input{
   text-align: left;
   font-family: 'Bebas Neue', cursive;
 }
+
+.links{
+  text-decoration: none;
+}
