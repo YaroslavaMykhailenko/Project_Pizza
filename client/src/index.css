@@ -88,4 +88,8 @@ input{
 }
 .button{
   display:inline;
+  border-radius: 4px;
+  height: 38px;
+  font-family: 'Bebas Neue', cursive;
+  border-color: lightsalmon;
 }
