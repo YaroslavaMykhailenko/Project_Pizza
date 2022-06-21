@@ -1,5 +1,5 @@
 export const placeOrderReducer =(state={} , action) =>{
-    console.log(state)
+    // console.log(state)
 
     switch(action.type)
     {
