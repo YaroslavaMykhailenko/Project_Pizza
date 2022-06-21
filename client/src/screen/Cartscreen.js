@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import {addToCart} from '../actions/cartActions'
 import {deleteFromCart} from '../actions/cartActions'
+import Checkout from '../components/Checkout'
 export default function Cartscreen() {
 
     const cartstate = useSelector(state => state.cartReducer)
@@ -50,8 +51,12 @@ export default function Cartscreen() {
                 <div className="col-md-4">
                     <h2 style={{fontSize:'35px', fontFamily: 'Bebas Neue'}}>Загальна ціна замовлення :</h2>
                     <h2 style={{fontSize:'35px', fontFamily: 'Bebas Neue'}}>{totalamount} ₴</h2>
-                    <button className="btn m-1" style={{fontSize:'20px',fontFamily: 'Bebas Neue'}}>Перейти до оплати</button>
-                    <button  className="btn m-4" style={{fontSize:'20px',fontFamily: 'Bebas Neue'}} onClick={GoToMenu}>Повернутися до меню</button>
+                    {/* <button className="btn m-1" style={{fontSize:'20px',fontFamily: 'Bebas Neue'}}>Перейти до оплати</button> */}
+                    <div className='btn amount'>
+                    <Checkout totalamount={totalamount}/>
+                    </div>
+                    <button  className="btn m-4" style={{fontSize:'20px',fontFamily: 'Bebas Neue', width:"250px"}} onClick={GoToMenu}>Повернутися до меню</button>
+                    
 
                 </div>
 
