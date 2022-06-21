@@ -55,7 +55,7 @@ export default function Cartscreen() {
                     <div className='btn amount'>
                     <Checkout totalamount={totalamount}/>
                     </div>
-                    <button  className="btn m-4" style={{fontSize:'20px',fontFamily: 'Bebas Neue', width:"250px"}} onClick={GoToMenu}>Повернутися до меню</button>
+                    <button  className="btn m-4" style={{fontSize:'18px',fontFamily: 'Bebas Neue', width:"250px", height : "44px"}} onClick={GoToMenu}>Повернутися до меню</button>
                     
 
                 </div>

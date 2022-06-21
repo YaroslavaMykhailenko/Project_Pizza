@@ -24,8 +24,8 @@ export default function Navbar() {
                                 {currentUser.name}
                             </a>
                             <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <a className="dropdown-item" href='#'>Мої замовлення</a>
-                                <a className="dropdown-item" href='#' onClick={()=>{dispatch(logoutUser())}}><li>Вийти</li></a>
+                                <a className="dropdown-item" href='/orders'>Мої замовлення</a>
+                                <a className="dropdown-item" onClick={()=>{dispatch(logoutUser())}}><li>Вийти</li></a>
                             </div>
                         </div>) : (<li className="nav-item"><a className="nav-link" href="/login">Log In</a></li>)}
                         <li className="nav-item">

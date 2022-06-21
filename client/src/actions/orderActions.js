@@ -4,11 +4,11 @@ export const placeOrder=(token , totalamount)=>async (dispatch , getState)=>{
 
       dispatch({type:'PLACE_ORDER_REQUEST'})
       const currentUser = getState().loginUserReducer.currentUser
-      const orderItems = getState().cartReducer.orderItems
+      const cartItems = getState().cartReducer.cartItems 
       
       try {
 
-         const response = await axios.post('/api/orders/placeorder' , {token , totalamount , currentUser , orderItems})
+         const response = await axios.post('/api/orders/placeorder' , {token , totalamount , currentUser , cartItems })
          dispatch({type:'PLACE_ORDER_SUCCESS'})
          console.log(response);
           
@@ -20,23 +20,23 @@ export const placeOrder=(token , totalamount)=>async (dispatch , getState)=>{
 }
 
 
-// export const getUserOrders=()=>async (dispatch,getState)=>{
+export const getUserOrders=()=>async (dispatch,getState)=>{
 
-//   const currentUser = getState().loginUserReducer.currentUser
-//   dispatch({type:'GET_USER_ORDERS_REQUEST'})
+  const currentUser = getState().loginUserReducer.currentUser
+  dispatch({type:'GET_USER_ORDERS_REQUEST'})
   
-//   try {
-//       const response = await axios.post('/api/orders/getuserorders' , {userid : currentUser._id})
+  try {
+      const response = await axios.post('/api/orders/getuserorders' , {userid : currentUser._id})
 
       
-//       console.log(response);
+      console.log(response);
       
-//       dispatch({type:'GET_USER_ORDERS_SUCCESS' , payload : response.data})
-//   } catch (error) {
-//       dispatch({type:'GET_USER_ORDERS_FAILED' , payload : error})
-//   }
+      dispatch({type:'GET_USER_ORDERS_SUCCESS' , payload : response.data})
+  } catch (error) {
+      dispatch({type:'GET_USER_ORDERS_FAILED' , payload : error})
+  }
 
-// }
+}
 
 // export const getAllOrders=()=>async (dispatch,getState)=>{
 

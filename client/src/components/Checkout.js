@@ -2,14 +2,14 @@ import React from 'react'
 import {useDispatch , useSelector} from 'react-redux'
 import StripeCheckout from 'react-stripe-checkout'
 import { placeOrder } from '../actions/orderActions'
-// import Error from "../components/Error";
-// import Loading from "../components/Loading";
-// import Success from '../components/Success'
+import Error from "../components/Error"
+import Loading from "../components/Loading"
+import Success from '../components/Success'
 export default function Checkout({totalamount}) {
 
-    // const orderstate = useSelector((state) => state.placeOrderReducer)
+    const orderstate = useSelector((state) => state.placeOrderReducer)
 
-    //const {loading , error , success} = orderstate    
+    const {loading , error , success} = orderstate    
     
     const dispatch = useDispatch()
     function tokenHandler(token)
@@ -22,9 +22,9 @@ export default function Checkout({totalamount}) {
     return (
         <div>
             
-            {/* {loading && (<Loading/>)}
-            {error && (<Error error='Something went wrong'/>)}
-            {success && (<Success success='Your Order Placed Successfully'/>)} */}
+            {loading && (<Loading/>)}
+            {error && (<Error error='Щось пішло не по плану😞'/>)}
+            {success && (<Success success='Платіж успішний. Ваше замовлення прийнято!😀'/>)}
 
             <StripeCheckout
             amount={totalamount*100}
@@ -35,7 +35,7 @@ export default function Checkout({totalamount}) {
             >
 
                   
-                  <button className='btn'>Pay Now</button>
+                  <a className='button p-1'  style={{fontFamily: 'Bebas Neue', fontSize: "18px", color: "currentcolor", textDecoration : 'none'}}>Сплатити</a>
 
             </StripeCheckout>
             
