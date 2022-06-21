@@ -23,7 +23,7 @@ export default function Navbar() {
                             <a style={{color:'black', fontSize : '25px'}} className="dropdown-toggle" type='button' id="dropdownMenu2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {currentUser.name}
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
                                 <a className="dropdown-item" href='#'>Мої замовлення</a>
                                 <a className="dropdown-item" href='#' onClick={()=>{dispatch(logoutUser())}}><li>Вийти</li></a>
                             </div>
