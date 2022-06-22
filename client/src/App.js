@@ -11,11 +11,11 @@ import Cartscreen from './screen/Cartscreen';
 import Registerscreen from './screen/Registerscreen';
 import Loginscreen from './screen/Loginscreen';
 import Ordersscreen from './screen/Ordersscreen'
-import Adminpage from './screen/Adminpage';
 import Addnewpizza from "./screen/Addnewpizza"
 import Orderslist from "./screen/Orderslist"
 import Pizzaslist from "./screen/Pizzaslist"
 import Userslist from "./screen/Userslist"
+import Editpizza from './screen/Editpizza';
 
 function App() {
   return (
@@ -36,6 +36,7 @@ function App() {
           <Route path='/admin/orderslist' exact element={<Orderslist />} />
           <Route path='/admin/pizzaslist' exact element={<Pizzaslist />} />
           <Route path='/admin/addnewpizza' exact element={<Addnewpizza />} />
+          <Route path='/admin/editpizza/:pizzaid' exact element={<Editpizza />} />
         </Routes>
       </BrowserRouter>
 
