@@ -2,22 +2,22 @@ import React, {useState, useEffect} from 'react'
 import Pizza from '../components/Pizza'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllPizzas } from '../actions/pizzaActions'
-import Loading from '../components/Loading';
-import Error from '../components/Error';
-import Searchbar from '../components/Searchbar';
+import Loading from '../components/Loading'
+import Error from '../components/Error'
+import Searchbar from '../components/Searchbar'
 // import { getAllPizzasReducer } from '../reducers/pizzaReducers'
 
 export default function Homepage() {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
-    const pizzasstate = useSelector((state) => state.getAllPizzasReducer);
+    const pizzasstate = useSelector((state) => state.getAllPizzasReducer)
 
-    const { pizzas, error, loading} = pizzasstate;
+    const { pizzas, error, loading} = pizzasstate
 
     useEffect(() => {
-        dispatch(getAllPizzas());
-    }, []);
+        dispatch(getAllPizzas())
+    }, [])
 
     return (
 
@@ -36,7 +36,7 @@ export default function Homepage() {
                             </div>
     
                         </div>
-                        );
+                        )
     
                     })
 

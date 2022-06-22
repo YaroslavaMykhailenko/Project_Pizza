@@ -8,6 +8,8 @@ import { registerUserReducer } from './reducers/userReducer'
 import { loginUserReducer } from './reducers/userReducer'
 import {placeOrderReducer} from './reducers/orderReducer'
 import {getUserOrdersReducer} from './reducers/orderReducer'
+import {addPizzaReducer} from './reducers/pizzaReducers'
+
 
 
 const finalReducer = combineReducers({
@@ -16,7 +18,8 @@ const finalReducer = combineReducers({
     registerUserReducer : registerUserReducer,
     loginUserReducer : loginUserReducer,
     placeOrderReducer : placeOrderReducer,
-    getUserOrdersReducer : getUserOrdersReducer
+    getUserOrdersReducer : getUserOrdersReducer,
+    addPizzaReducer : addPizzaReducer
 
 })
 const cartItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []

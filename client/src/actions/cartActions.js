@@ -5,7 +5,7 @@ export const addToCart=(pizza, quantity, varient)=>(dispatch, getState)=>{
         _id : pizza._id,
         image : pizza.image,
         varient : varient,
-        quantity : Number(quantity),
+        quantity : (quantity),
         prices : pizza.prices,
         price : pizza.prices[0][varient]*quantity
 
