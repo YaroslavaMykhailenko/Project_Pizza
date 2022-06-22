@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getPizzaById } from "../actions/pizzaActions"
+import { editPizza, getPizzaById } from "../actions/pizzaActions"
 import { Link } from 'react-router-dom'
 import Loading from '../components/Loading'
 import Error from '../components/Error'
@@ -21,26 +21,42 @@ export default function Editpizza() {
 
     const getpizzabyidstate = useSelector(state => state.getPizzaByIdReducer)
     const { pizza, error, loading } = getpizzabyidstate
+    const editpizzastate = useSelector(state => state.editPizzaReducer)
+    const { editloading, editerror, editsuccess } = editpizzastate
+
     let { pizzaid } = useParams()
     useEffect(() => {
         // let { pizzaid } = useParams()
-        if(pizza){
-            setname(pizza.name)
+        if (pizza) {
+            if (pizza._id == pizzaid) {
+                setname(pizza.name)
+                setdescription(pizza.description)
+                setcategory(pizza.category)
+                setsmallprice(pizza.prices[0]['маленька'])
+                setmediumprice(pizza.prices[0]['середня'])
+                setlargeprice(pizza.prices[0]['велика'])
+                setimage(pizza.image)
+            }
+            else {
+                dispatch(getPizzaById(pizzaid))
+            }
         }
-        else{
+        else {
             dispatch(getPizzaById(pizzaid))
 
         }
-        
-        
+
+
+
     }, [pizza, dispatch])
-    
+
 
     function formHandler(e) {
 
         e.preventDefault();
 
-        const pizza = {
+        const editedpizza = {
+            _id : pizzaid,
             name,
             image,
             description,
@@ -51,7 +67,8 @@ export default function Editpizza() {
                 'велика': Number(largeprice)
             }
         }
-        console.log(pizza)
+        // console.log(updatedpizza)
+        dispatch(editPizza(editedpizza))
 
 
 
@@ -73,11 +90,13 @@ export default function Editpizza() {
 
                 </ul>
                 <h1>Редагування даних</h1>
-                <h1>ID = {pizzaid}</h1>
+                
                 <div>
                 {loading && (<Loading />)}
                 {error && (<Error error='Щось пішло не по плану' />)}
-                
+                {editsuccess && (<Success success='Інформація успішно відредагована' />)}
+                {editloading && (<Loading />)}
+
 
                 <form onSubmit={formHandler}>
                     <input className="form-control" type="text" placeholder="Назва" value={name} onChange={(e) => { setname(e.target.value) }} />
@@ -89,11 +108,11 @@ export default function Editpizza() {
                     <input className="form-control" type="text" placeholder="Лінк на фото" value={image} onChange={(e) => { setimage(e.target.value) }} />
                     <button className='btn mt-3' type='submit'>Зберегти зміни</button>
                 </form>
-                </div>
-
             </div>
 
         </div>
+
+    </div>
     )
 
 

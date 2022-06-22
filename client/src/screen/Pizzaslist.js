@@ -44,7 +44,7 @@ export default function Pizzaslist() {
                             <th>Назва</th>
                             <th>Ціна</th>
                             <th>Вид піци</th>
-                            <th>Дії</th>
+                            <th>Видалити/Редагувати</th>
                         </tr>
                     </thead>
                     <tbody>

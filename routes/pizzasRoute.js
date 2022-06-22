@@ -40,16 +40,40 @@ router.post("/addpizza", async(req, res) => {
 router.post("/getpizzabyid", async(req, res) => {
 
     const pizzaid = req.body.pizzaid
+
     
    
     try {
-        сonsole.log(pizzaid)
+        
         const pizza = await Pizza.findOne({_id : pizzaid})
         res.send(pizza)
     } catch (error) {
+        
         return res.status(400).json({ message: error })
     }
      
-   })
+})
+
+   router.post("/editpizza", async(req, res) => {
+
+    const editedpizza = req.body.editedpizza
+
+    try {
+        const pizza = await Pizza.findOne({_id : editedpizza._id})        
+        pizza.name = editedpizza.name,
+        pizza.description = editedpizza.description,
+        pizza.image = editedpizza.image,
+        pizza.category = editedpizza.category,
+        pizza.prices = [editedpizza.prices]
+
+        await pizza.save()
+
+        res.send('Зміни успішно виконані!')
+
+    } catch (error) {
+        return res.status(400).json({ message: error });
+    }
+  
+})
 
 module.exports = router;
