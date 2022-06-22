@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import Loading from '../components/Loading'
 import Error from '../components/Error'
 import Success from '../components/Success'
-import { STATES } from "mongoose"
+
 
 export default function Editpizza() {
     const [name, setname] = useState("")
@@ -19,11 +19,22 @@ export default function Editpizza() {
 
     const dispatch = useDispatch()
 
-    // const getpizzabyidstate = useSelector(state => state.getPizzaByIdReducer)
-    // const { pizza, error, loading } = getpizzabyidstate
-
+    const getpizzabyidstate = useSelector(state => state.getPizzaByIdReducer)
+    const { pizza, error, loading } = getpizzabyidstate
     let { pizzaid } = useParams()
-    dispatch(getPizzaById(pizzaid))
+    useEffect(() => {
+        // let { pizzaid } = useParams()
+        if(pizza){
+            setname(pizza.name)
+        }
+        else{
+            dispatch(getPizzaById(pizzaid))
+
+        }
+        
+        
+    }, [pizza, dispatch])
+    
 
     function formHandler(e) {
 
@@ -64,8 +75,8 @@ export default function Editpizza() {
                 <h1>Редагування даних</h1>
                 <h1>ID = {pizzaid}</h1>
                 <div>
-                {/* {loading && (<Loading />)}
-                {error && (<Error error='Щось пішло не по плану' />)} */}
+                {loading && (<Loading />)}
+                {error && (<Error error='Щось пішло не по плану' />)}
                 
 
                 <form onSubmit={formHandler}>
