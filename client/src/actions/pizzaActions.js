@@ -14,7 +14,7 @@ export const getAllPizzas=()=>async dispatch=>{
 
 }
 
-export const filterPizzas=(searchkey , category)=>async dispatch=>{
+export const filterPizzas=(searchpizza , category)=>async dispatch=>{
 
   
     dispatch({type:'GET_PIZZAS_REQUEST'})
@@ -22,7 +22,7 @@ export const filterPizzas=(searchkey , category)=>async dispatch=>{
     try {
         var filteredPizzas ;
         const response = await axios.get('/api/pizzas/getallpizzas')
-        filteredPizzas = response.data.filter(pizza=>pizza.name.toLowerCase().includes(searchkey))
+        filteredPizzas = response.data.filter(pizza=>pizza.name.toLowerCase().includes(searchpizza))
          
         if(category!='all')
         {

@@ -4,14 +4,14 @@ import { filterPizzas } from "../actions/pizzaActions";
 
 export default function Searchbar() {
     const dispatch = useDispatch()
-    const[searchkey , setsearchkey] = useState('')
+    const[searchpizza , setsearchpizza] = useState('')
     const[category , setcategory] = useState('all')
     return (
         <div className='container'>
             <div className="row justify-content-center shadow p-3 mb-5 bg-white rounded">
 
                     <div className="col-md-3">
-                      <input  type="text" onChange={(e)=>{setsearchkey(e.target.value)}} value={searchkey} className="form-control w-100" placeholder="Знайти улюблену піцу.."/>
+                      <input  type="text" onChange={(e)=>{setsearchpizza(e.target.value)}} value={searchpizza} className="form-control w-100" placeholder="Знайти улюблену піцу.."/>
                     </div>
                     <div className="col-md-3">
                         <select className="form-control w-100 mt-2" value={category} onChange={(e)=>setcategory(e.target.value)}>
@@ -21,7 +21,7 @@ export default function Searchbar() {
                         </select>
                     </div>
                     <div className="col-md-3 ">
-                       <button className='button w-100 mt-2' style={{backgroundColor : "lightsalmon"}} onClick={()=>(dispatch(filterPizzas(searchkey, category)))}>Пошук</button>
+                       <button className='button w-100 mt-2' style={{backgroundColor : "lightsalmon"}} onClick={()=>(dispatch(filterPizzas(searchpizza, category)))}>Пошук</button>
                     </div>
 
             </div>
