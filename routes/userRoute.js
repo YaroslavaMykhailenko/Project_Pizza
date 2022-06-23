@@ -11,6 +11,7 @@ router.post("/register", async(req, res) => {
     try {
         newUser.save()
         res.send('Користувач успішно зареєстрований')
+
     } catch (error) {
          return res.status(400).json({ message: error });
     }
@@ -43,7 +44,32 @@ router.post("/login", async(req, res) => {
            return res.status(400).json({ message: 'Щось пішло не по плану' });
     }
   
+})
+
+router.get("/getallusers", async(req, res) => {
+
+    try {
+        const users = await User.find({})
+        res.send(users)
+    } catch (error) {
+        return res.status(400).json({ message: error});
+    }
+  
 });
+
+router.post("/deleteuser", async(req, res) => {
+  
+    const userid = req.body.userid
+
+    try {
+        await User.findOneAndDelete({_id : userid})
+        res.send('Користувач успішно видалений!')
+
+    } catch (error) {
+        return res.status(400).json({ message: error });
+    }
+
+})
 
 
 

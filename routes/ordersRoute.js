@@ -24,7 +24,7 @@ router.post("/placeorder", async (req, res) => {
 
         if (payment) {
             // res.send('Оплата завершена')
-//             console.log('Привет');
+//             console.log('Я зараз тут');
 //             console.log(payment)
 
 
@@ -65,37 +65,40 @@ router.post("/getuserorders", async (req, res) => {
     try {
         const orders = await Order.find({ userid: userid }).sort({ _id: -1 })
         res.send(orders)
+
     } catch (error) {
         return res.status(400).json({ message: 'Щось пішло не по плану' })
     }
 })
 
-// router.get("/getallorders", async (req, res) => {
+router.get("/getallorders", async (req, res) => {
 
-//     try {
-//         const orders = await Order.find({})
-//         res.send(orders)
-//     } catch (error) {
-//         return res.status(400).json({ message: error });
-//     }
+    try {
+        const orders = await Order.find({})
+        res.send(orders)
 
-// });
+    } catch (error) {
+        return res.status(400).json({ message: error });
+    }
 
-// router.post("/deliverorder", async (req, res) => {
+})
 
-//     const orderid = req.body.orderid
-//     try {
-//         const order = await Order.findOne({ _id: orderid })
-//         order.isDelivered = true
-//         await order.save()
-//         res.send('Order Delivered Successfully')
-//     } catch (error) {
+router.post("/deliverorder", async (req, res) => {
 
-//         return res.status(400).json({ message: error });
+    const orderid = req.body.orderid
+    try {
+        const order = await Order.findOne({ _id: orderid })
+        order.isDelivered = true
+        await order.save()
+        res.send('Замовлення успішно відправлено!')
 
-//     }
+    } catch (error) {
 
-// });
+        return res.status(400).json({ message: error });
+
+    }
+
+})
 
 
 

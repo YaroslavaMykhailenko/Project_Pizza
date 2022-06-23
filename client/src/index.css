@@ -76,6 +76,11 @@ input{
   font-family: 'Bebas Neue', cursive;
 }
 
+thead{
+  background-color:lightslategray;
+  color: black;
+}
+
 .links{
   text-decoration: none;
 }
