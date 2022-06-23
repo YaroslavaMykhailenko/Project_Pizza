@@ -79,7 +79,7 @@ export default function Editpizza() {
     return (
         <div className="row justify-content-center">
 
-            <div className="col-md-10">
+            <div className="col-md-10 shadow p-3 mb-5 bg-white rounded">
                 <h2 style={{ fontSize: '35px', fontFamily: 'Bebas Neue' }}>Сторінка адміністратора</h2>
                 <ul className="adminpanel">
                     <li><Link to={'/admin/userslist'}>Список користувачів</Link></li>

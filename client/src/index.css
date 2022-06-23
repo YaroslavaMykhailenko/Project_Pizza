@@ -121,3 +121,11 @@ td, th, tr{
   font-family: 'Bebas Neue', cursive;
   border-color: lightsalmon;
 }
+
+.table td {
+  text-align: center;   
+}
+
+.table th {
+  text-align: center;   
+}

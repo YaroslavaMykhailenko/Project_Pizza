@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import { Modal } from 'react-bootstrap'
 import {useDispatch , useSelector} from 'react-redux'
 import { addToCart } from '../actions/cartActions'
 export default function Pizza({ pizza }) {
+
+    AOS.init()
     const [quantity, setquantity] = useState(1)
     const [varient, setvarient] = useState('маленька')
     const [show, setShow] = useState(false);
@@ -19,7 +23,7 @@ export default function Pizza({ pizza }) {
 
 
     return (
-        <div className='shadow p-3 mb-5 bg-white rounded'>
+        <div data-aos='fade-up' data-aos-duration="1000" className='shadow p-3 mb-5 bg-white rounded'>
             <div onClick={handleShow}>
                 <h1>{pizza.name}</h1>
                 <img src={pizza.image} className='img-fluid' style={{ height: '200px' }} />

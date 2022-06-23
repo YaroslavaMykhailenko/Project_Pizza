@@ -10,9 +10,15 @@ export default function Userslist() {
     const usersstate = useSelector(state => state.getAllUsersReducer)
     const { error, loading, users } = usersstate
 
+    const currentstate = useSelector(state => state.loginUserReducer)
+    const { currentUser } = currentstate
+
     useEffect(() => {
 
         dispatch(getAllUsers())
+        if (!currentUser.isAdmin) {
+            window.location.href = "/"
+        }
 
     }, [])
 
@@ -34,7 +40,7 @@ export default function Userslist() {
                 <h1>Список користувачів</h1>
                 {loading && <Loading />}
                 {error && <Error error="Щось пішло не так" />}
-                <table className='table table-striped'>
+                <table className='table table-striped table-bordered table-responsive-sm'>
                     <thead>
                         <tr>
                             <th>Id Користувача</th>

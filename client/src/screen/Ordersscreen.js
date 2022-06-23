@@ -4,11 +4,11 @@ import { getUserOrders } from '../actions/orderActions'
 import Error from "../components/Error";
 import Loading from "../components/Loading";
 import Success from '../components/Success'
-// import AOS from 'aos'
-// import 'aos/dist/aos.css';
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 export default function Ordersscreen() {
 
-    // AOS.init()
+    AOS.init()
     const dispatch = useDispatch()
     const orderstate = useSelector(state => state.getUserOrdersReducer)
     const { orders, error, loading } = orderstate
@@ -28,7 +28,7 @@ export default function Ordersscreen() {
                 {loading && (<Loading />)}
                 {error && (<Error error='Щось не так(' />)}
                 {orders && orders.map(order=>{
-                    return <div className="col-md-8 m-2" style={{backgroundColor : "lightgreen" , color:'black', borderRadius: '7px'}}>
+                    return <div className="col-md-8 m-2" data-aos='fade-up' data-aos-duration="1000" style={{backgroundColor : "lightgreen" , color:'black', borderRadius: '7px'}}>
 
                             <div className="flex-container">
                                 <div className='text-left w-100 m-1'>

@@ -16,17 +16,17 @@ export default function Adminpage() {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        console.log(currentUser)
+        console.log(currentUser.isAdmin)
         
         if (!currentUser.isAdmin) {
-            window.location.href = "/";
+            window.location.href = "/"
         }
     }, [])
 
     return (
         <div>
             <div className="row justify-content-center">
-                <div className="col-md-10">
+                <div className="col-md-10 ">
                     <h2 style={{ fontSize: '35px', fontFamily: 'Bebas Neue' }}>Сторінка адміністратора</h2>
                     <ul className="adminpanel">
                         <li><Link to={'/admin/userslist'}>Список користувачів</Link></li>

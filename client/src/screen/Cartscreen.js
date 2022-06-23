@@ -1,10 +1,12 @@
-import React from "react";
+import React from "react"
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import { useSelector, useDispatch } from 'react-redux'
 import {addToCart} from '../actions/cartActions'
 import {deleteFromCart} from '../actions/cartActions'
 import Checkout from '../components/Checkout'
 export default function Cartscreen() {
-
+    AOS.init()
     const cartstate = useSelector(state => state.cartReducer)
     const cartItems = cartstate.cartItems
     var totalamount = cartItems.reduce((x , item)=> x + item.price, 0)
@@ -16,7 +18,7 @@ export default function Cartscreen() {
     }
     return (
         <div>
-            <div className="row justify-content-center">
+            <div data-aos='fade-up' data-aos-duration="1000" className="row justify-content-center">
                 <div className="col-md-6">
                     <h3 style={{ fontSize: '35px', fontFamily: 'Bebas Neue' }}>Мій кошик</h3>
                     {cartItems.map(item=>{
@@ -52,10 +54,10 @@ export default function Cartscreen() {
                     <h2 style={{fontSize:'35px', fontFamily: 'Bebas Neue'}}>Загальна ціна замовлення :</h2>
                     <h2 style={{fontSize:'35px', fontFamily: 'Bebas Neue'}}>{totalamount} ₴</h2>
                     {/* <button className="btn m-1" style={{fontSize:'20px',fontFamily: 'Bebas Neue'}}>Перейти до оплати</button> */}
-                    <div className='btn amount'>
+                    {/* <div className='btn'> */}
                     <Checkout totalamount={totalamount}/>
-                    </div>
-                    <button  className="btn m-4" style={{fontSize:'18px',fontFamily: 'Bebas Neue', width:"250px", height : "44px"}} onClick={GoToMenu}>Повернутися до меню</button>
+                    {/* </div> */}
+                    <button  className="btn m-4" style={{fontSize:'18px',fontFamily: 'Bebas Neue', width:"250px", height : "45px"}} onClick={GoToMenu}>Повернутися до меню</button>
                     
 
                 </div>

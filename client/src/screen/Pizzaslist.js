@@ -37,7 +37,7 @@ export default function Pizzaslist() {
                 <h1>Піци</h1>
                 {loading && (<Loading />)}
                 {error && (<Error error='Щось пішло не так' />)}
-                <table className='table table-striped'>
+                <table className='table table-striped table-bordered table-responsive-sm'>
 
                     <thead >
                         <tr>

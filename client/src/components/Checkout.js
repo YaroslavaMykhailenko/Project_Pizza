@@ -35,7 +35,7 @@ export default function Checkout({totalamount}) {
             >
 
                   
-                  <a className='button p-1'  style={{fontFamily: 'Bebas Neue', fontSize: "18px", color: "currentcolor", textDecoration : 'none'}}>Сплатити</a>
+                  <a className='btn p-2'  style={{fontFamily: 'Bebas Neue', fontSize: "18px", backgroundColor: "green", textDecoration : 'none', color: 'white', width: '250px'}}>Сплатити</a>
 
             </StripeCheckout>
             
